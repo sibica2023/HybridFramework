@@ -1,15 +1,14 @@
 ﻿'##################################################################################################################################
-'Project Name : JCI Project
-'File Name: PME_GL_Post FI document
-'Description:Copy Actual to Plan
-'Developed  by/Date: Sibi/ 25.02.2012
+'Project Name : Order To Cash Process Flow
+'File Name: Create and display sales order
+'Description:This end to end scenario is used to create and display sales order
+'Developed  by/Date: Sibi C A/ 06-Apr-2023
 'Version No:0.1
 'Data File Name: Excel Sheet
 'Mandatory Fields:
 'Input Parameters Used:  From data sheets
-'Output Parameters Used: bIterationRunStatus
+'Output Parameters Used: 
 'Reviewed by/Review Date: 
-
 '*******************************************************************************Modification history***********************************************************************************
 'S.No___________________________Modified by__________________________Modified Date__________________________Reason____________________
 
@@ -25,11 +24,11 @@ Set QtApp = CreateObject("QuickTest.Application")
 QtApp.WindowState = "Minimized"
 
 'Give the path of the UserDefinedFunctions.vbs file and execute
-  strVbsPath = "C:\Automation\Lib Fun\Library Function.qfl" 
+  strVbsPath = "C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.qfl" 
   ExecuteFile strVbsPath
 
 'Give the path of the Data file
-Environment.Value("strFilePath") =  "C:\Data Sheet\PME_GL_Post FI document.xlsx" 
+Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
 'Included to generate the screenshots
 Environment.Value("reportPath") = hour(now)&minute(now)&second(now)
@@ -44,22 +43,17 @@ Environment.Value("AllRows") = xlSheet.UsedRange.Rows.Count
 xlWB.Save
 xlObj.Quit
 
-For intcurrentRow=2 to Environment.Value("AllRows")
+For intcurrentRow = 2 to Environment.Value("AllRows")
 
-		RunAction "Action1 [SAP Login]", oneIteration,intcurrentRow,RunStatusLogin     'Login
-
-			If  RunStatusLogin = "Pass" Then
-				 RunAction "Action1 [FB01_Post_document]", oneIteration,intcurrentRow,RunStatusPostDocu    'Post FI Document
+		RunAction "Action1 [SAPLogon]", oneIteration, ,intcurrentRow,RunStatusLogin
+			If  RunStatusLogin = "Pass" Then		
+				RunAction "Action1 [VA01_CreateSalesOrder]", oneIteration, intcurrentRow,RunStatusCreateSO
 			End If
-
-			If  RunStatusPostDocu = "Pass" Then
-  				 RunAction "Action1 [FB03_Display Document Overview]", oneIteration,intcurrentRow,0,RunStatusDisplay   'Display Document
+			If  RunStatusCreateSO = "Pass" Then				
+				RunAction "Action1 [VA03_DisplaySalesOrder]", oneIteration, intcurrentRow,0,RunStatusDisplay
 			End If
-
-		RunAction "Action1 [SAP Logoff]", oneIteration
+		RunAction "Action1 [SAPLogOff]", oneIteration
 
 Next
 
-
 '*******************************************************************************End of Script******************************************************************************************
-

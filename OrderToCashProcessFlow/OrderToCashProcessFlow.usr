@@ -13,6 +13,10 @@ DevelopTool=AQT
 [Actions]
 Action0=Action0\Script.mts
 Action1=Action1\Script.mts
+Action1 [VA01_CreateSalesOrder]=Action1\Script.mts
+Action1 [VA03_DisplaySalesOrder]=Action1\Script.mts
+Action1 [SAPLogon]=Action1\Script.mts
+Action1 [SAPLogOff]=Action1\Script.mts
 
 [VuserProfiles]
 Profiles=Default Profile
