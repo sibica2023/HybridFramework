@@ -18,6 +18,40 @@
 
 '####################################################################################################################################
 
+' Run  QTP  in minimize mode
+SystemUtil.CloseProcessByName("Excel.exe")
+Set QtApp = CreateObject("QuickTest.Application") 
+QtApp.WindowState = "Minimized"
+
+'Give the path of the UserDefinedFunctions.vbs file and execute
+ strVbsPath = "C:\Automation\Lib Fun\Library Function.qfl" 
+ ExecuteFile strVbsPath
+
+'Give the path of the Data file
+'Environment.Value("strFilePath") =  "C:\Data Sheet\PME_Post vendor invoice with WH tax code ZX.xlsx" 
+
+'intCurrentRow = 2
+'intDataSetCnt = 0
+
+'Create an Excel Object and open the input data file
+ Set xlObj = CreateObject("Excel.Application") 
+ xlObj.WorkBooks.Open Environment.Value("strFilePath") 
+ xlObj.DisplayAlerts = False
+ Set xlWB = xlObj.ActiveWorkbook 
+ Set xlSheet = xlWB.WorkSheets("VA03") 
+
+intCurrentRow = Parameter("Row")
+
+If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
+
+	'Variable declaration
+	Dim intDocumentNo
+	Dim intCompanyCode	
+	'Enter corresponding transaction code
+	SAPGuiSession("Session").Reset "VA03"
+	
+
+End  If
 
 
 '**********************************************************End of Script***************************************************
