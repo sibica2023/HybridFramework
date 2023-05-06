@@ -24,5 +24,5 @@ If not SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").Exist (5) Then
    Else
    	Reporter.ReportEvent micFail, "SAP Logoff", "SAP logoff is not successful, session is still active"	
 End If
-
+ @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
 '**********************************************************End of Script***************************************************
