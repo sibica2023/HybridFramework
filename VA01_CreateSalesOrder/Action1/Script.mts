@@ -23,11 +23,8 @@ SystemUtil.CloseProcessByName("Excel.exe")
 Set QtApp = CreateObject("QuickTest.Application") 
 QtApp.WindowState = "Minimized"
 
-'Give the path of the UserDefinedFunctions.vbs file and execute
-'LoadFunctionLibrary ("C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.qfl")
-
 'Give the path of the Data file
-Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
+'Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
 'Create an Excel Object and open the input data file
  Set xlObj = CreateObject("Excel.Application") 
