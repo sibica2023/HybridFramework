@@ -24,7 +24,7 @@ Set QtApp = CreateObject("QuickTest.Application")
 QtApp.WindowState = "Minimized"
 
 'Give the path of the UserDefinedFunctions.vbs file and execute
- ExecuteFile "C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.txt" 
+ ExecuteFile "C:\Automation\FunctionLibrary.qfl" 
   
 'Give the path of the Data file
 Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
