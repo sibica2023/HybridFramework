@@ -23,10 +23,6 @@ SystemUtil.CloseProcessByName("Excel.exe")
 Set QtApp = CreateObject("QuickTest.Application") 
 QtApp.WindowState = "Minimized"
 
-'Give the path of the UserDefinedFunctions.vbs file and execute
-  strVbsPath = "C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.qfl" 
-  ExecuteFile strVbsPath
-
 'Give the path of the Data file
 Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
@@ -37,7 +33,7 @@ Environment.Value("reportPath") = hour(now)&minute(now)&second(now)
 Set xlObj = CreateObject("Excel.Application") 
  xlObj.WorkBooks.Open Environment.Value("strFilePath") 
  Set xlWB = xlObj.ActiveWorkbook 
- Set xlSheet = xlWB.WorkSheets("SAPLogin") 
+ Set xlSheet = xlWB.WorkSheets("SAPLogOn") 
 
 Environment.Value("AllRows") = xlSheet.UsedRange.Rows.Count
 xlWB.Save
