@@ -1,3 +1,7 @@
 ﻿<Properties>
   <WatchEntry0 value="strVbsPath" />
+  <WatchEntry1 value="GetColValue(&quot;ExecuteIteration&quot;)" />
+  <WatchEntry2 value="GetColValue(&quot;ExecuteIteration&quot;)" />
+  <WatchEntry3 value="GetColValue(&quot;ipOrderType&quot;)" />
+  <WatchEntry4 value="GetColValue(&quot;ExecuteIteration&quot;)" />
 </Properties>
