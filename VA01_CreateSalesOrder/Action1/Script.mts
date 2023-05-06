@@ -24,7 +24,7 @@ Set QtApp = CreateObject("QuickTest.Application")
 QtApp.WindowState = "Minimized"
 
 'Give the path of the UserDefinedFunctions.vbs file and execute
-  strVbsPath = "C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.qfl" 
+  strVbsPath = "C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.txt" 
   ExecuteFile strVbsPath
 
 'Give the path of the Data file
@@ -96,7 +96,7 @@ End  If
 'These codes are included to save the data into the respective sheets
 Set xlSheet = nothing
 For Iter = 1 To xlWB.Worksheets.Count
-	 If xlWB.Worksheets(Iter).Name = "VA01" Then 
+	 If xlWB.Worksheets(Iter).Name = "VA03" Then 
 		 Set xlSheet = xlWB.Worksheets(Iter)
 		 setxlval "opSalesOrderNumber",intCurrentRow, opSalesOrderNumber
 		 Exit For 
