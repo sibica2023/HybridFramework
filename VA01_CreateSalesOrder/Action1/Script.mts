@@ -28,7 +28,7 @@ QtApp.WindowState = "Minimized"
   ExecuteFile strVbsPath
 
 'Give the path of the Data file
-'Environment.Value("strFilePath") =  "C:\Data Sheet\PME_Post vendor invoice with WH tax code ZX.xlsx" 
+Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
 'Create an Excel Object and open the input data file
  Set xlObj = CreateObject("Excel.Application") 
@@ -91,12 +91,18 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	   	Reporter.ReportEvent micFail, "Create Sales Order", "Sales order creation failed, no status message displayed in the statusbar"
 	 End If
 	
-	 'Assign Materrial to a output parameter
-	 varMaterial = Parameter("ipMaterial")
-	 Parameter ("opMaterial") = varMaterial
-	 
 End  If
 
+'These codes are included to save the data into the respective sheets
+Set xlSheet = nothing
+For Iter = 1 To xlWB.Worksheets.Count
+	 If xlWB.Worksheets(Iter).Name = "VA01" Then 
+		 Set xlSheet = xlWB.Worksheets(Iter)
+		 setxlval "opSalesOrderNumber",intCurrentRow, opSalesOrderNumber
+		 Exit For 
+     End If 
+Next 
+	 
 xlWB.Save
 xlObj.Quit
 Set xlSheet = nothing
