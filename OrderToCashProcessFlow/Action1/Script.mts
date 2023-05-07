@@ -23,6 +23,9 @@ SystemUtil.CloseProcessByName("Excel.exe")
 Set QtApp = CreateObject("QuickTest.Application") 
 QtApp.WindowState = "Minimized"
 
+'Execute Library Function file
+
+
 'Give the path of the Data file
 Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
@@ -42,14 +45,30 @@ xlObj.Quit
 For intcurrentRow = 2 to Environment.Value("AllRows")
 
 		RunAction "Action1 [SAPLogon]", oneIteration, ,intcurrentRow,RunStatusLogin
-			If  RunStatusLogin = "Pass" Then		
+			If  RunStatusLogin = "PASS" Then		
 				RunAction "Action1 [VA01_CreateSalesOrder]", oneIteration, intcurrentRow,RunStatusCreateSO
 			End If
-			If  RunStatusCreateSO = "Pass" Then				
-				RunAction "Action1 [VA03_DisplaySalesOrder]", oneIteration, intcurrentRow,0,RunStatusDisplay
+			If  RunStatusCreateSO = "PASS" Then				
+				RunAction "Action1 [VA03_DisplaySalesOrder]", oneIteration, intcurrentRow,RunStatusDisplay
 			End If
 		RunAction "Action1 [SAPLogOff]", oneIteration
 
 Next
 
 '*******************************************************************************End of Script******************************************************************************************
+
+'===================================================================================
+' Function Name: SetXLVal
+' Description  : To set Value to XL sheet
+' Return Value : Column name, Row no and cell value
+Function SetXLVal(ColumnName,RowNo,CellValue)
+ intColumnCnt=xlSheet.usedrange.Entirecolumn.count
+ For i = 1 to intColumnCnt
+  If (ColumnName = cstr(xlSheet.Cells(1,i).value)) Then
+   ColValue = i
+   Exit for
+  End If
+ Next
+ xlSheet.Cells(RowNo,ColValue)=CellValue
+end Function
+
