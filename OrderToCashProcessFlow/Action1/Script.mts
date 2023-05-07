@@ -44,7 +44,7 @@ xlObj.Quit
 
 For intcurrentRow = 2 to Environment.Value("AllRows")
 
-		RunAction "Action1 [SAPLogon]", oneIteration, ,intcurrentRow,RunStatusLogin
+		RunAction "Action1 [SAPLogon]", oneIteration,intcurrentRow,RunStatusLogin
 			If  RunStatusLogin = "PASS" Then		
 				RunAction "Action1 [VA01_CreateSalesOrder]", oneIteration, intcurrentRow,RunStatusCreateSO
 			End If
