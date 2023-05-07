@@ -30,7 +30,7 @@ LoadFunctionLibrary ("C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLi
 Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
 'Included to generate the screenshots
-Environment.Value("reportPath") = hour(now)&minute(now)&second(now)
+'Environment.Value("reportPath") = hour(now)&minute(now)&second(now)
 
 'Create an Excel Object and open the input data file
 Set xlObj = CreateObject("Excel.Application") 
