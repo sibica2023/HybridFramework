@@ -96,7 +96,7 @@ Set xlSheet = nothing
 For Iter = 1 To xlWB.Worksheets.Count
 	 If xlWB.Worksheets(Iter).Name = "VA03" Then 
 		 Set xlSheet = xlWB.Worksheets(Iter)
-		 setxlval "opSalesOrderNumber",intCurrentRow, opSalesOrderNumber
+		 setxlval "ipSalesOrderNumber",intCurrentRow, opSalesOrderNumber
 		 Exit For 
      End If 
 Next 
