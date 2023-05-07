@@ -24,7 +24,7 @@ Set QtApp = CreateObject("QuickTest.Application")
 QtApp.WindowState = "Minimized"
 
 'Give the path of the Data file
-'Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
+Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
 
 'Create an Excel Object and open the input data file
  Set xlObj = CreateObject("Excel.Application") 
@@ -40,7 +40,7 @@ intCurrentRow = Parameter("Row")
 If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 
 	'Variable Declaration
-	Dim varStatusMessage, varStatusText, varMaterial,opSalesOrderNumber
+	Dim varSalesOrderActual
 	'Lauch SAP Transaction code
 	SAPGuiSession("Session").Reset "VA03"
  @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
@@ -51,7 +51,7 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	
 	'Verify displayed sales order number
 	varSalesOrderActual = SAPGuiSession("Session").SAPGuiWindow("Display Standard Order").SAPGuiEdit("Standard Order").GetROProperty ("value") @@ hightlight id_;_1_;_script infofile_;_ZIP::ssf2.xml_;_
-	If varSalesOrderActual = GetColValue("ipSalesOrderNumber") Then
+	If varSalesOrderActual = CStr (GetColValue("ipSalesOrderNumber")) Then
 		Reporter.ReportEvent micPass, "Display Sales Order", "Sales order displayed and verified successfully"
 		Parameter ("bIterationStatus") = "PASS"
 	    Else

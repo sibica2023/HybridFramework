@@ -1,0 +1,4 @@
+﻿<Properties>
+  <WatchEntry0 value="varSalesOrderActual" />
+  <WatchEntry1 value="GetColValue(&quot;ipSalesOrderNumber&quot;)" />
+</Properties>
