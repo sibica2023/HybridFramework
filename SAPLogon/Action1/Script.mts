@@ -48,14 +48,14 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	'Validation
 	If SAPGuiSession("Session").SAPGuiWindow("SAP Easy Access").Exist (5) Then
 		Reporter.ReportEvent micPass, "SAP Logon", "SAP logon is sucessful"
+		Parameter ("bIterationStatus") = "PASS"
 	    Else
 	    	Reporter.ReportEvent micFail, "SAP Logon", "SAP Logon failed, please check your entries"
 	 End  If
 End  If
-  @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
+ @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
  '***********************************************End of Script*******************************************************
  
-
  'Function Name  GetColValue
          'Description  : Returns column no. based on column name
 
