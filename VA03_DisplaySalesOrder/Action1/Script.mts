@@ -29,8 +29,8 @@ QtApp.WindowState = "Minimized"
 'Create an Excel Object and open the input data file
  Set xlObj = CreateObject("Excel.Application") 
  xlObj.WorkBooks.Open Environment.Value("strFilePath") 
- xlObj.DisplayAlerts = True
- xlObj.Visible = True
+ xlObj.DisplayAlerts = False
+ xlObj.Visible = False
  Set xlWB = xlObj.ActiveWorkbook 
  Set xlSheet = xlWB.WorkSheets("VA03") 
  
@@ -57,7 +57,7 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	    Else
 		 Reporter.ReportEvent micFail, "Display Sales Order", "Display sales order was failed, please check your entries"
 	End If
-	 @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf2.xml_;_
+ @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf2.xml_;_
 	 'Navigate back to SAP Easy Access screen
 	SAPGuiSession("Session").SAPGuiWindow("Display Standard Order").SAPGuiButton("Back   (F3)").Click @@ hightlight id_;_1_;_script infofile_;_ZIP::ssf3.xml_;_
 	SAPGuiSession("Session").SAPGuiWindow("Display Sales Documents").SAPGuiButton("Back   (F3)").Click @@ hightlight id_;_1_;_script infofile_;_ZIP::ssf4.xml_;_
