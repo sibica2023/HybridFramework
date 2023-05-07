@@ -55,7 +55,7 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 End  If
  @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
  '***********************************************End of Script*******************************************************
- 
+
  'Function Name  GetColValue
          'Description  : Returns column no. based on column name
 
