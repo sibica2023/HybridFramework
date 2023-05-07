@@ -29,8 +29,8 @@ QtApp.WindowState = "Minimized"
 'Create an Excel Object and open the input data file
  Set xlObj = CreateObject("Excel.Application") 
  xlObj.WorkBooks.Open Environment.Value("strFilePath") 
- xlObj.DisplayAlerts = True
- xlObj.Visible = True
+ xlObj.DisplayAlerts = False
+ xlObj.Visible = False
  Set xlWB = xlObj.ActiveWorkbook 
  Set xlSheet = xlWB.WorkSheets("VA01") 
  
