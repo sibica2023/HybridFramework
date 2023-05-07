@@ -54,6 +54,10 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	 End  If
 End  If
  @@ hightlight id_;_0_;_script infofile_;_ZIP::ssf1.xml_;_
+ xlWB.Save
+xlObj.Quit
+Set xlSheet = nothing
+
  '***********************************************End of Script*******************************************************
 
  'Function Name  GetColValue
