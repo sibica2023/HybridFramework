@@ -81,6 +81,7 @@ If Ucase (GetColValue("ExecuteIteration"))="TRUE" Then
 	 		varStatusText = SAPGuiSession("Session").SAPGuiWindow("Create Standard Order:").SAPGuiStatusBar("StatusBar").GetROProperty("text")
 	 		opSalesOrderNumber = SAPGuiSession("Session").SAPGuiWindow("Create Standard Order:").SAPGuiStatusBar("StatusBar").GetROProperty("item2")
 	 		Reporter.ReportEvent micPass, "Create Sales Order", "Sales Order created with the document number : "& opSalesOrderNumber
+	 		Parameter("bIterationStatus") = "PASS"
 	 	  Else
 	 	  	Reporter.ReportEvent micFail, "Create Sales Order", "Sales order creation was failed, please check your entries"
 	 	End If
@@ -114,7 +115,7 @@ Set xlSheet = nothing
 
  '***********************************************End of Script*******************************************************
  
- 
+
  'Function Name  GetColValue
          'Description  : Returns column no. based on column name
 
