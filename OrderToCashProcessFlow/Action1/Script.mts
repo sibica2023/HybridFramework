@@ -24,7 +24,7 @@ Set QtApp = CreateObject("QuickTest.Application")
 QtApp.WindowState = "Minimized"
 
 'Execute Library Function file
-
+LoadFunctionLibrary ("C:\Users\demo\Documents\UFT One\HybridFramework\FunctionLibrary.qfl")
 
 'Give the path of the Data file
 Environment.Value("strFilePath") =  "C:\Users\demo\Documents\UFT One\HybridFramework\DataSheet\OrderToCash.xlsx" 
