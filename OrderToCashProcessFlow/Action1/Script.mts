@@ -39,6 +39,7 @@ Set xlObj = CreateObject("Excel.Application")
  Set xlSheet = xlWB.WorkSheets("SAPLogOn") 
 
 Environment.Value("AllRows") = xlSheet.UsedRange.Rows.Count
+
 xlWB.Save
 xlObj.Quit
 
